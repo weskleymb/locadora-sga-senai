@@ -20,6 +20,7 @@ public class CategoriaController {
 	
 	@GetMapping
 	public String index(Model model) {
+		service.removerPorId(1L);
 		List<Categoria> categorias = service.buscarTodos();
 		model.addAttribute("categorias", categorias);
 		return "categoria/index";

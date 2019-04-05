@@ -1,5 +1,7 @@
 package br.senai.rn.locadora.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,18 +10,19 @@ import javax.persistence.Table;
 
 @Entity(name = "Categoria")
 @Table(name = "categorias")
-public class Categoria implements Comparable<Categoria> {
+public class Categoria implements Serializable, Comparable<Categoria> {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private Double valor;
-	private Boolean ativo;
+	private boolean ativo;
 	
-	@SuppressWarnings("deprecation")
 	public Categoria() {
-		ativo = new Boolean(true);
+		ativo = true;
 	}
 	
 	public Long getId() {
@@ -46,11 +49,11 @@ public class Categoria implements Comparable<Categoria> {
 		this.valor = valor;
 	}
 	
-	public Boolean getAtivo() {
+	public boolean getAtivo() {
 		return ativo;
 	}
 
-	public void setAtivo(Boolean ativo) {
+	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
 
