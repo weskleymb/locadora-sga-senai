@@ -2,6 +2,8 @@ package br.senai.rn.locadora.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import br.senai.rn.locadora.models.Categoria;
 import br.senai.rn.locadora.repositories.CategoriaRepository;
 
 @Service
+@Transactional
 public class CategoriaService {
 
 	@Autowired
@@ -22,15 +25,15 @@ public class CategoriaService {
 		repository.delete(categoria);
 	}
 	
-	public void removerPorId(Long id) {
+	public void remover(Long id) {
 		repository.deleteById(id);
 	}
 	
-	public Categoria buscarPorId(Long id) {
+	public Categoria obter(Long id) {
 		return repository.findById(id).get();
 	}
 	
-	public List<Categoria> buscarTodos() {
+	public List<Categoria> obterTodos() {
 		return repository.findAll();
 	}
 	
