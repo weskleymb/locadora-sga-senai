@@ -14,6 +14,31 @@
                 <div class="col-4">
                     <fieldset>
                         <legend>Cadastro</legend>
+                        <form th:action="@{/categoria}" th:object="${categoria}" method="post">
+                            <input type="hidden" name="id" id="id" th:value="*{id}" th:field="*{id}">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" name="nome" id="nome" th:value="*{nome}" th:field="*{nome}" class="form-control" placeholder="Nome" autocomplete="off" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label for="fone">Valor</label>
+                                <input type="number" name="valor" id="valor" value="0" th:value="*{valor}" th:field="*{valor}" class="form-control" min="0" max="20" step="0.1" placeholder="Valor" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-primary btn-block">
+                                            <i class="fas fa-save"></i> Salvar
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="reset" class="btn btn-danger btn-block">
+                                            <i class="fas fa-eraser"></i> Limpar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </fieldset>
                 </div>
                 <div class="col-8">
@@ -33,10 +58,10 @@
                                     <td th:text="${categoria.nome}"></td>
                                     <td th:text="${categoria.valor}"></td>
                                     <td>
-                                        <a th:href="@{/categoria/editar/{id}(id=${categoria.id})}" class="btn btn-success">
+                                        <a th:href="@{/categoria/editar/{id}(id=${categoria.id})}" class="btn btn-success btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a th:href="@{/categoria/remover/{id}(id=${categoria.id})}" class="btn btn-danger" onclick="confirmar();">
+                                        <a th:href="@{/categoria/remover/{id}(id=${categoria.id})}" class="btn btn-danger btn-sm" onclick="confirmar();">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>

@@ -31,7 +31,7 @@ public class Categoria extends AuditedEntity {
 	}
 	
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.trim().toUpperCase();
 	}
 	
 	public Double getValor() {
