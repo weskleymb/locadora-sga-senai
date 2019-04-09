@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -29,7 +30,7 @@ public abstract class AuditedEntity implements PersistableEntity<Long>, Comparab
 	private Date dataModificacao;
 	
 	@Column(name = "ativo")
-	private boolean ativo = true;
+	private Boolean ativo = true;
 
 	public Date getDataCriacao() {
 		return dataCriacao;
@@ -46,12 +47,17 @@ public abstract class AuditedEntity implements PersistableEntity<Long>, Comparab
 	public void setDataModificacao(Date dataModificacao) {
 		this.dataModificacao = dataModificacao;
 	}
+	
+	@PreUpdate
+	private void preUpdate() {
+		this.dataModificacao = new Date();
+	}
 
-	public boolean isAtivo() {
+	public Boolean isAtivo() {
 		return ativo;
 	}
 
-	public void setAtivo(boolean ativo) {
+	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
 	}
 	
