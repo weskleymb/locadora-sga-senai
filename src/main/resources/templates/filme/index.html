@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <label for="categoria">Categoria</label>
                                 <select class="form-control" id="categoria" th:field="*{categoria}" th:value="*{categoria}">
-                                    <option th:each="categoria : ${categoriaLista}" 
+                                    <option th:each="categoria : ${categoriaList}" 
                                         th:value="${categoria.id}" 
                                         th:text="${categoria.nome}">
                                     </option>
@@ -66,7 +66,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="filme : ${filmeLista}">
+                                <tr th:each="filme : ${filmeList}">
                                     <td th:text="${filme.id}"></td>
                                     <td th:text="${filme.titulo}"></td>
                                     <td th:text="${filme.categoria.nome}"></td>

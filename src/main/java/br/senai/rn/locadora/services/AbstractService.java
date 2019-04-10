@@ -12,24 +12,24 @@ public abstract class AbstractService<T extends AuditedEntity> {
 	@Autowired
 	private GenericRepository<T> repository;
 	
-	public void salvar(T entity) {
+	public void save(T entity) {
 		repository.save(entity);
 	}
 	
-	public void remover(T entity) {
+	public void remove(T entity) {
 		repository.delete(entity);
 	}
 	
-	public void remover(Long id) {
+	public void remove(Long id) {
 		repository.deleteById(id);
 	}
 	
-	public T obter(Long id) {
+	public T find(Long id) {
 		T entity = repository.findById(id).get();
 		return entity;
 	}
 	
-	public List<T> obterTodos() {
+	public List<T> findAll() {
 		List<T> entities = repository.findAll();
 		return entities;
 	}

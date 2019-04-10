@@ -22,16 +22,16 @@ public class FilmeController extends AbstractController<Filme> {
 	
 	@Override
 	public String index(Model model) {
-		List<Categoria> categorias = categoriaService.obterTodos();
-		model.addAttribute("categoriaLista", categorias);
+		List<Categoria> categorias = categoriaService.findAll();
+		model.addAttribute("categoriaList", categorias);
 		return super.index(model);
 	}
 	
 	@Override
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable Long id, Model model) {
-		List<Categoria> categorias = categoriaService.obterTodos();
-		model.addAttribute("categoriaLista", categorias);
+		List<Categoria> categorias = categoriaService.findAll();
+		model.addAttribute("categoriaList", categorias);
 		return super.editar(id, model);
 	}
 	
