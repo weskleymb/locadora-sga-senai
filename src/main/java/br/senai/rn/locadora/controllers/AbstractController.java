@@ -1,14 +1,12 @@
 package br.senai.rn.locadora.controllers;
 
 import java.lang.reflect.ParameterizedType;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import br.senai.rn.locadora.models.AuditedEntity;
 import br.senai.rn.locadora.services.AbstractService;
 
